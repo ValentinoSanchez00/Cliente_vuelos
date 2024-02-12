@@ -6,7 +6,7 @@ include 'controllers/PasajeController.php';
 include 'services/PasajeServices.php';
 include 'views/PasajeView.php';
 // Define la acción por defecto
-define('ACCION_DEFECTO', 'verTodos');
+define('ACCION_DEFECTO', 'verInicio');
 
 // Define el controlador por defecto
 define('CONTROLADOR_DEFECTO', 'Vuelos');
