@@ -20,7 +20,7 @@ class ViewGeneral {
 
     public function formularioDeInserción($identificadores, $pasajeros) {
         echo '<div class="container">';
-        echo '<form method="post" action="">';
+        echo '<form method="post" action="./index.php?controller=General&action=validarDatosForm">';
 
 // Título
         echo '<h2>Insertar Pasaje</h2>';
@@ -30,7 +30,7 @@ class ViewGeneral {
         echo '<label for="select2" class="form-label">Selecciona Pasajero:</label>';
         echo '<select id="select2" name="select2" class="form-select">';
         foreach ($pasajeros as $pasajero) {
-            echo '<option value="' . $pasajero . '">' . $pasajero . '</option>';
+            echo '<option value="' . substr($pasajero, 3). '">' . $pasajero . '</option>';
         }
         echo '</select>';
         echo '</div>';

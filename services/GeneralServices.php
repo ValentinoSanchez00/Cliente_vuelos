@@ -22,8 +22,12 @@ class GeneralServices{
        return $res;
     }
     
-       public function DarServicioPasajeros($servicio) {
-       $res= $this->servicePasajero->$servicio();
+       public function DarServicioPasajeros($servicio,$variable1,$variable2) {
+           if ($variable1!=null && $variable2!=null) {
+               $res= $this->servicePasajero->$servicio($variable1,$variable2);
+           } else {
+                $res= $this->servicePasajero->$servicio();
+           }
        return $res;
     }
     
