@@ -13,21 +13,13 @@ class PasajeController {
         $this->view = new PasajeView();
     }
 
-    public function mostrarformularioPasaje() {
+    public function obteneridentificadores() {
        $identificadores= json_decode($this->service->request_curlIdentificadores(),true);
-       $arraydePasajes=[];
-        foreach ($arraydePasajes as $valoresPasaje) {
-          
-          $nuevoPasaje=new Pasaje($valoresPasaje["idpasaje"],$valoresPasaje["pasajerocod"],$valoresPasaje["identificador"],$valoresPasaje["numasiento"],$valoresPasaje["clase"],$valoresPasaje["pvp"]);
-          
-          array_push($arraydePasajes,$nuevoPasaje);
-          //Hacer controlador y servicio general
-          
-          
-          
-          
-
+       $arraydeidentificadores=[];
+        foreach ($identificadores as $valores) {
+          array_push($arraydeidentificadores,$valores["identificador"]); 
       }
+       return $arraydeidentificadores;
         
         
         

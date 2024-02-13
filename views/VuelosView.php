@@ -11,7 +11,7 @@ class VuelosView {
 
             <a href="./index.php?controller=Vuelos&action=verTodos">Mostrar Todos los Vuelos</a>
             <a href="./index.php?controller=Vuelos&action=mostrarFormulario1vuelo">Mostrar 1 Vuelo</a>
-            <a href="./index.php?controller=Pasaje&action=mostrarformularioPasaje">Insertar u pasaje</a>
+            <a href="./index.php?controller=General&action=mostrarformularioPasaje">Insertar un pasaje</a>
             <br>
             <a href="#">Actualizar Pasaje</a>
         </div>

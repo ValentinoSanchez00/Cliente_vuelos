@@ -5,6 +5,8 @@ include 'views/VuelosView.php';
 include 'controllers/PasajeController.php';
 include 'services/PasajeServices.php';
 include 'views/PasajeView.php';
+include 'controllers/GeneralController.php';
+include 'services/GeneralServices.php';
 // Define la acción por defecto
 define('ACCION_DEFECTO', 'verInicio');
 
