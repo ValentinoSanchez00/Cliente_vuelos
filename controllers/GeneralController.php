@@ -4,14 +4,12 @@ class GeneralController {
 
     // Obtiene una instancia del modelo y de la vista de tareas
     private $serviceGeneral;
-    private $viewPasaje;
-    private $viewVuelo;
+    private $viewGeneral;
     private $vueloController;
     private $pasajeController;
 
     public function __construct() {
-        $this->viewPasaje = new PasajeView();
-        $this->viewVuelo = new VuelosView();
+        $this->viewGeneral= new ViewGeneral();
         $this->serviceGeneral = new GeneralServices();
         $this->vueloController = new VuelosController();
         $this->pasajeController = new PasajeController();
@@ -24,5 +22,18 @@ class GeneralController {
             array_push($arraydeidentificadores, $valores["identificadores"]);
         }
        
+        $pasajeros= json_decode($this->serviceGeneral->DarServicioPasajeros("request_curlNombres"),true);
+          $arraydepasajeros = [];
+        foreach ($pasajeros as $valores) {
+            array_push($arraydepasajeros, $valores["nombre_concatenado"]);
+        }
+        
+        
+        $this->viewGeneral->formularioDeInserción($arraydeidentificadores, $arraydepasajeros);
     }
+    
+    
+    
+    
+    
 }
