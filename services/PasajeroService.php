@@ -56,17 +56,14 @@ class PasajeroService {
         curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
 
         $res = curl_exec($conexion);
-        if ($res == false) {
-
-            return false;
-        } else {
-            return true;
+        if ($res) {
+            return $res;
         }
         curl_close($conexion);
     }
 
-    public function validarnumasiento($numasiento,$identificador) {
-    $urlmiservicio = "http://localhost/_servWeb/vueloservice/pasajero.php?validarasiento=" . $numasiento . "&identificador=" . $identificador;
+    public function validarnumasiento($numasiento, $identificador) {
+        $urlmiservicio = "http://localhost/_servWeb/vueloservice/pasajero.php?validarasiento=" . $numasiento . "&identificador=" . $identificador;
         $conexion = curl_init();
 //Url de la petición
         curl_setopt($conexion, CURLOPT_URL, $urlmiservicio);
