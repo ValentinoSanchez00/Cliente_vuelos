@@ -30,7 +30,7 @@ class ViewGeneral {
         echo '<label for="select2" class="form-label">Selecciona Pasajero:</label>';
         echo '<select id="select2" name="select2" class="form-select">';
         foreach ($pasajeros as $pasajero) {
-            echo '<option value="' . substr($pasajero, 3). '">' . $pasajero . '</option>';
+            echo '<option value="' . substr($pasajero, 0,1). '">' . $pasajero . '</option>';
         }
         echo '</select>';
         echo '</div>';
