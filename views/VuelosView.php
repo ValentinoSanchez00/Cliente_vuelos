@@ -22,6 +22,7 @@ class VuelosView {
     public function mostrartodos($array) {
         ?>
         <h1>Todos los Vuelos</h1>
+     
         <!-- INICIO TABLA -->
         <div class="table-container">
             <table class="table">

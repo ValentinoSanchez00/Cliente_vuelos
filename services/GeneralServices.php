@@ -17,17 +17,18 @@ class GeneralServices{
        return $res;
     }
     
-    public function DarServicioPasaje($servicio) {
-       $res= $this->servicePasaje->$servicio();
+    public function DarServicioPasaje($servicio,$variable1,$variable2,$variable3,$variable4,$variable5) {
+      
+        if ($variable1!=null && $variable2!=null && $variable3!=null && $variable4!=null && $variable5!=null) {
+               $res= $this->servicePasaje->$servicio($variable1,$variable2,$variable3,$variable4,$variable5);
+           } else {
+                $res= $this->servicePasaje->$servicio();
+           }
        return $res;
     }
     
-       public function DarServicioPasajeros($servicio,$variable1,$variable2,$variable3,$variable4,$variable5) {
-           if ($variable1!=null && $variable2!=null && $variable3!=null && $variable4!=null && $variable5!=null) {
-               $res= $this->servicePasajero->$servicio($variable1,$variable2,$variable3,$variable4,$variable5);
-           } else {
-                $res= $this->servicePasajero->$servicio();
-           }
+       public function DarServicioPasajeros($servicio) {
+         $res= $this->servicePasajero->$servicio();
        return $res;
     }
     

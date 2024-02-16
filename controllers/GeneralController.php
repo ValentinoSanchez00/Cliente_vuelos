@@ -38,8 +38,8 @@ class GeneralController {
         $numasiento = $_POST["asiento"];
         $clase = $_POST["clase"];
         $pvp = $_POST["pvp"];
-        $validarnombre = $this->serviceGeneral->DarServicioPasajeros("validar", $nombre,$identificador,$numasiento,$clase,$pvp);
-        
+        $validar = $this->serviceGeneral->DarServicioPasaje("validar", $nombre,$identificador,$numasiento,$clase,$pvp);
+        //ya funciona
    
 
 
