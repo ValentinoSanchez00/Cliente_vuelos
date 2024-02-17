@@ -80,5 +80,7 @@ class ViewGeneral {
 
         echo '</form>';
         echo '</div>';
+        echo '<a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>';
     }
+    
 }

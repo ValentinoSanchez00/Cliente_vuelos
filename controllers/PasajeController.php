@@ -20,8 +20,27 @@ class PasajeController {
           array_push($arraydeidentificadores,$valores["identificador"]); 
       }
        return $arraydeidentificadores;
-        
-        
-        
+ 
     }
+    
+    public function mostrarPasajes() {
+        $pasajes=json_decode($this->service->request_curl(),true);
+        $arraydePasajes=[];
+      foreach ($pasajes as $valoresPasaje) {
+          
+          $nuevoPasaje=new Pasaje($valoresPasaje["idpasaje"],$valoresPasaje["pasajerocod"],$valoresPasaje["identificador"],$valoresPasaje["numasiento"],$valoresPasaje["clase"],$valoresPasaje["pvp"]);
+          
+          array_push($arraydePasajes,$nuevoPasaje);
+
+      }
+      if (isset($_GET["validacion"])) {
+          $this->view->mostrarPasajesValidado($arraydePasajes,$_GET["validacion"]);
+      } else {
+          $this->view->mostrarPasajes($arraydePasajes);
+      }
+       
+    }
+    
+    
+    
 }

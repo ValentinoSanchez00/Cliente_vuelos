@@ -22,7 +22,7 @@ class GeneralController {
             array_push($arraydeidentificadores, $valores["identificadores"]);
         }
 
-        $pasajeros = json_decode($this->serviceGeneral->DarServicioPasajeros("request_curlNombres",null,null,null,null,null), true);
+        $pasajeros = json_decode($this->serviceGeneral->DarServicioPasajeros("request_curlNombres", null, null, null, null, null), true);
         $arraydepasajeros = [];
         foreach ($pasajeros as $valores) {
             array_push($arraydepasajeros, $valores["nombre_concatenado"]);
@@ -38,10 +38,9 @@ class GeneralController {
         $numasiento = $_POST["asiento"];
         $clase = $_POST["clase"];
         $pvp = $_POST["pvp"];
-        $validar = $this->serviceGeneral->DarServicioPasaje("validar", $nombre,$identificador,$numasiento,$clase,$pvp);
+        $validar = json_decode($this->serviceGeneral->DarServicioPasaje("validar", $nombre, $identificador, $numasiento, $clase, $pvp));
         //ya funciona
-   
-
-
+        $resultado = $validar->resultado;
+        header("Location: ./index.php?controller=Pasaje&action=mostrarPasajes&validacion=" . $resultado);
     }
 }
