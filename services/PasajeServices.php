@@ -66,8 +66,8 @@ class PasajeServices {
     }
  
 
-function actualizar($id,$cod, $identificador, $numasiento, $clase, $pvp) {
-        $envio = json_encode(array("idpasaje"=>$id,"pasajerocod" => $cod, "identificador" => $identificador, "numasiento" => $numasiento, "clase" => $clase, "pvp" => $pvp));
+function actualizar($id, $pasajerocod, $identificador, $numasiento, $clase, $pvp) {
+        $envio = json_encode(array("idpasaje"=>$id,"pasajerocod" => $pasajerocod, "identificador" => $identificador, "numasiento" => $numasiento, "clase" => $clase, "pvp" => $pvp));
     $urlmiservicio = "http://localhost/_servWeb/vueloservice/pasaje.php/";
     $conexion = curl_init();
     curl_setopt($conexion, CURLOPT_URL, $urlmiservicio);

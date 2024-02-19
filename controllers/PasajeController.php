@@ -47,15 +47,15 @@ class PasajeController {
     }
     
     public function update() {
-        $id=$_GET["id"];
-        $pasajerocod=$_POST["pasajerocod"];
+        $id= intval($_GET["id"]);
+        $pasajerocod=intval($_POST["pasajerocod"]);
         $identificador=$_POST["identificador"];
-        $numasiento=$_POST["numasiento"];
+        $numasiento= intval($_POST["numasiento"]);
         $clase=$_POST["clase"];
-        $pvp=$_POST["clase"];
+        $pvp= floatval($_POST["pvp"]);
         
         
-        $validar = json_decode($this->service->actualizar($id, $cod, $identificador, $numasiento, $clase, $pvp));
+        $validar = json_decode($this->service->actualizar($id, $pasajerocod, $identificador, $numasiento, $clase, $pvp));
         $resultado = $validar->mensaje;
         header("Location: ./index.php?controller=Pasaje&action=mostrarPasajes&validacion=" . $resultado);
         
