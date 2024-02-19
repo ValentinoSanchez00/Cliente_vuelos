@@ -41,6 +41,27 @@ class PasajeController {
        
     }
     
+    public function FormEdicion() {
+        $id=$_GET["id"];
+        $this->view->formulariodeupdate($id);
+    }
+    
+    public function update() {
+        $id=$_GET["id"];
+        $pasajerocod=$_POST["pasajerocod"];
+        $identificador=$_POST["identificador"];
+        $numasiento=$_POST["numasiento"];
+        $clase=$_POST["clase"];
+        $pvp=$_POST["clase"];
+        
+        
+        $validar = json_decode($this->service->actualizar($id, $cod, $identificador, $numasiento, $clase, $pvp));
+        $resultado = $validar->mensaje;
+        header("Location: ./index.php?controller=Pasaje&action=mostrarPasajes&validacion=" . $resultado);
+        
+        
+    }
+    
     
     
 }
