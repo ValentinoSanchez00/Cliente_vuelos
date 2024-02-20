@@ -87,4 +87,29 @@ function actualizar($id, $pasajerocod, $identificador, $numasiento, $clase, $pvp
     }
     curl_close($conexion);
 }
+
+
+//DELETE para borrar
+function delete($id) {
+    $urlmiservicio = "http://localhost/_servWeb/vueloservice/pasaje.php/?id=".$id;
+    $conexion = curl_init();
+    curl_setopt($conexion, CURLOPT_URL, $urlmiservicio);
+    //Cabecera, tipo de datos y longitud de envío
+    curl_setopt($conexion, CURLOPT_HTTPHEADER, array('Content-type: application/json' ));
+    //Tipo de petición
+     curl_setopt($conexion, CURLOPT_CUSTOMREQUEST, 'DELETE');
+    //Campos que van en el envío
+    //curl_setopt($conexion, CURLOPT_POSTFIELDS, $envio);
+    //para recibir una respuesta
+    curl_setopt($conexion, CURLOPT_RETURNTRANSFER, true);
+
+    $res = curl_exec($conexion);
+    if ($res) {
+
+        return $res;
+    }
+    curl_close($conexion);
+}
+
+
 }

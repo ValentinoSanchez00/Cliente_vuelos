@@ -58,9 +58,17 @@ class PasajeController {
         $validar = json_decode($this->service->actualizar($id, $pasajerocod, $identificador, $numasiento, $clase, $pvp));
         $resultado = $validar->mensaje;
         header("Location: ./index.php?controller=Pasaje&action=mostrarPasajes&validacion=" . $resultado);
-        
-        
     }
+    
+    public function delete() {
+        $pasajeId=$_POST["pasajeId"];
+        $validar= json_decode($this->service->delete($pasajeId));
+         $resultado = $validar->message;
+        header("Location: ./index.php?controller=Pasaje&action=mostrarPasajes&validacion=" . $resultado);
+    }
+    
+    
+    
     
     
     

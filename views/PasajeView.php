@@ -7,6 +7,7 @@ class PasajeView {
 
 
         <div class="container mt-4 transparent-white-bg">
+             <a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>
             <table class="table table-bordered">
                 <thead class="thead-dark">
                     <tr>
@@ -31,16 +32,16 @@ class PasajeView {
                             <td>
                                 <a class="btn btn-success " href="./index.php?controller=Pasaje&action=FormEdicion&id=<?php echo $pasaje->getIdpasaje() ?>">Editar</a>
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal_<?php echo $pasaje->getIdpasaje()?>">
-                                   Borrar
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal_<?php echo $pasaje->getIdpasaje() ?>">
+                                    Borrar
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal_<?php echo $pasaje->getIdpasaje()?>" tabindex="-1" aria-labelledby="exampleModalLabel_<?php echo $pasaje->getIdpasaje()?>" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal_<?php echo $pasaje->getIdpasaje() ?>" tabindex="-1" aria-labelledby="exampleModalLabel_<?php echo $pasaje->getIdpasaje() ?>" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel_<?php echo $pasaje->getIdpasaje()?>">Eliminar Pasaje</h1>
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel_<?php echo $pasaje->getIdpasaje() ?>">Eliminar Pasaje</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -48,7 +49,10 @@ class PasajeView {
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-danger">Borrar</button>
+                                                <form id="deleteForm_<?php echo $pasaje->getIdpasaje() ?>" method="post" action="./index.php?controller=Pasaje&action=delete">
+                                                    <input type="hidden" name="pasajeId" value="<?php echo $pasaje->getIdpasaje(); ?>">
+                                                    <button type="submit" class="btn btn-danger">Borrar</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -59,7 +63,7 @@ class PasajeView {
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>
+           
         </div>
 
         <?php
@@ -73,6 +77,7 @@ class PasajeView {
             <div class="alert alert-primary" role="alert">
                 <?php echo $mensaje ?>
             </div>
+             <a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>
 
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -97,16 +102,16 @@ class PasajeView {
                             <td><?= $pasaje->getPvp() ?></td>
                             <td>
                                 <a class="btn btn-success " href="./index.php?controller=Pasaje&action=FormEdicion&id=<?php echo $pasaje->getIdpasaje() ?>">Editar</a>
-                                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal_<?php echo $pasaje->getIdpasaje()?>">
-                                   Borrar
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal_<?php echo $pasaje->getIdpasaje() ?>">
+                                    Borrar
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal_<?php echo $pasaje->getIdpasaje()?>" tabindex="-1" aria-labelledby="exampleModalLabel_<?php echo $pasaje->getIdpasaje()?>" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal_<?php echo $pasaje->getIdpasaje() ?>" tabindex="-1" aria-labelledby="exampleModalLabel_<?php echo $pasaje->getIdpasaje() ?>" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel_<?php echo $pasaje->getIdpasaje()?>">Eliminar Pasaje</h1>
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel_<?php echo $pasaje->getIdpasaje() ?>">Eliminar Pasaje</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -114,7 +119,10 @@ class PasajeView {
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-danger">Borrar</button>
+                                                 <form id="deleteForm_<?php echo $pasaje->getIdpasaje() ?>" method="post" action="./index.php?controller=Pasaje&action=delete">
+                                                    <input type="hidden" name="pasajeId" value="<?php echo $pasaje->getIdpasaje(); ?>">
+                                                    <button type="submit" class="btn btn-danger">Borrar</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +132,7 @@ class PasajeView {
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>
+           
         </div>
 
         <?php
