@@ -17,24 +17,30 @@ class VuelosController {
     
     
     
-    public function verTodos() {
-      $Vuelos= json_decode($this->service->request_curl(),true);
-      $arraydeVuelos=[];
-      foreach ($Vuelos as $valoresVuelo) {
-          
-          $nuevoVuelo=new Vuelo($valoresVuelo["identificador"],$valoresVuelo["aeropuertoorigen"],$valoresVuelo["aeropuertodestino"],$valoresVuelo["tipovuelo"],$valoresVuelo["fechavuelo"],$valoresVuelo["descuento"],$valoresVuelo["numpasajero"]);
-          
-          array_push($arraydeVuelos,$nuevoVuelo);
+  public function verTodos() {
+     $vuelos = json_decode($this->service->request_curl(), true);
+    $arrayDeVuelos = [];
 
-      }
-      
-      
-      
-      $this->view->mostrartodos($arraydeVuelos);
-        
-        
-        
+    foreach ($vuelos as $valoresVuelo) {
+        $aeropuertoOrigen = new Aeropuerto($valoresVuelo["codigo_origen"], $valoresVuelo["nombre_origen"],null,null);
+        $aeropuertoDestino = new Aeropuerto($valoresVuelo["codigo_destino"], $valoresVuelo["nombre_destino"],null,null);
+
+        $nuevoVuelo = new Vuelo(
+            $valoresVuelo["identificador"],
+            $aeropuertoOrigen,
+            $aeropuertoDestino,
+            $valoresVuelo["tipovuelo"],
+            $valoresVuelo["fechavuelo"],
+            $valoresVuelo["descuento"],
+            $valoresVuelo["numpasajero"]
+        );
+
+        array_push($arrayDeVuelos, $nuevoVuelo);
     }
+
+    $this->view->mostrartodos($arrayDeVuelos);
+}
+
     public function mostrarFormulario1vuelo() {
         $this->view->formularioporId();
     }

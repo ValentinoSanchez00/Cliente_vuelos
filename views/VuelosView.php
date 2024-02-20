@@ -19,49 +19,50 @@ class VuelosView {
         <?php
     }
 
-    public function mostrartodos($array) {
-        ?>
-        <h1>Todos los Vuelos</h1>
-     
-        <!-- INICIO TABLA -->
-        <div class="table-container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Identificador</th>
-                        <th>Origen</th>
-                        <th>Destino</th>
-                        <th>Tipo de Vuelo</th>
-                        <th>Fecha</th>
-                        <th>Descuento</th>
-                        <th>Num Pasajeros</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach ($array as $vuelo) {
-                        ?>
-                        <tr>
-                            <td><?php echo $vuelo->getIdentificador(); ?></td>
-                            <td><?php echo $vuelo->getAeropuertoorigen(); ?></td>
-                            <td><?php echo $vuelo->getAeropuertodestino(); ?></td>
-                            <td><?php echo $vuelo->getTipovuelo(); ?></td>
-                            <td><?php echo $vuelo->getFechavuelo(); ?></td>
-                            <td><?php echo $vuelo->getDescuento(); ?></td>
-                            <td><?php echo $vuelo->getNumpasajero() ?></td>
-                        </tr>
-                        <?php
-                    }
+public function mostrartodos($array) {
+    ?>
+    <h1>Todos los Vuelos</h1>
+
+    <!-- INICIO TABLA -->
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Identificador</th>
+                    <th>Aeropuerto Origen</th>
+                    <th>Nombre Origen</th>
+                    <th>Aeropuerto Destino</th>
+                    <th>Nombre Destino</th>
+                    <th>Tipo de Vuelo</th>
+                    <th>Num Pasajeros</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($array as $vuelo) {
                     ?>
-                </tbody>
-            </table>
+                    <tr>
+                        <td><?php echo $vuelo->getIdentificador(); ?></td>
+                        <td><?php echo $vuelo->getAeropuertoOrigen()->getCodigo(); ?></td>
+                        <td><?php echo $vuelo->getAeropuertoOrigen()->getNombre(); ?></td>
+                        <td><?php echo $vuelo->getAeropuertoDestino()->getCodigo(); ?></td>
+                        <td><?php echo $vuelo->getAeropuertoDestino()->getNombre(); ?></td>
+                        <td><?php echo $vuelo->getTipovuelo(); ?></td>
+                        <td><?php echo $vuelo->getNumpasajero(); ?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </tbody>
+        </table>
 
-            <a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>
-        </div>
+        <a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>
+    </div>
 
-        <!-- FIN TABLA -->
-        <?php
-    }
+    <!-- FIN TABLA -->
+    <?php
+}
+
 
     public function formularioporId() {
         ?>

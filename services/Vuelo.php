@@ -1,5 +1,8 @@
 <?php
 
+
+include 'Aeropuerto.php';
+
 class Vuelo {
 
     private $identificador;
@@ -10,6 +13,15 @@ class Vuelo {
     private $descuento;
     private $numpasajero;
     
+        public function __construct($identificador, Aeropuerto $aeropuertoorigen, Aeropuerto $aeropuertodestino, $tipovuelo, $fechavuelo, $descuento, $numpasajero) {
+        $this->identificador = $identificador;
+        $this->aeropuertoorigen = $aeropuertoorigen;
+        $this->aeropuertodestino = $aeropuertodestino;
+        $this->tipovuelo = $tipovuelo;
+        $this->fechavuelo = $fechavuelo;
+        $this->descuento = $descuento;
+        $this->numpasajero = $numpasajero;
+    }
     
     public function getIdentificador() {
         return $this->identificador;
@@ -67,14 +79,6 @@ class Vuelo {
         $this->numpasajero = $numpasajero;
     }
 
-    public function __construct($identificador, $aeropuertoorigen, $aeropuertodestino, $tipovuelo, $fechavuelo, $descuento, $numpasajero) {
-        $this->identificador = $identificador;
-        $this->aeropuertoorigen = $aeropuertoorigen;
-        $this->aeropuertodestino = $aeropuertodestino;
-        $this->tipovuelo = $tipovuelo;
-        $this->fechavuelo = $fechavuelo;
-        $this->descuento = $descuento;
-        $this->numpasajero = $numpasajero;
-    }
+
 
 }
