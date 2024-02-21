@@ -17,14 +17,14 @@ class VuelosServices {
 
         $res = curl_exec($conexion);
         if ($res) {
-           
+
             return $res;
         }
         curl_close($conexion);
     }
-    
-       public function request_curlid($id) {
-        $urlmiservicio = "http://localhost/_servWeb/vueloservice/vuelos.php?id=".$id;
+
+    public function request_curlid($id) {
+        $urlmiservicio = "http://localhost/_servWeb/vueloservice/vuelos.php?id=" . $id;
         $conexion = curl_init();
         //Url de la petición
         curl_setopt($conexion, CURLOPT_URL, $urlmiservicio);
@@ -37,14 +37,14 @@ class VuelosServices {
 
         $res = curl_exec($conexion);
         if ($res) {
-           
+
             return $res;
         }
         curl_close($conexion);
     }
-    
+
     public function request_curlIdentificadores() {
-         $urlmiservicio = "http://localhost/_servWeb/vueloservice/vuelos.php?identificadores";
+        $urlmiservicio = "http://localhost/_servWeb/vueloservice/vuelos.php?identificadores";
         $conexion = curl_init();
         //Url de la petición
         curl_setopt($conexion, CURLOPT_URL, $urlmiservicio);
@@ -57,11 +57,9 @@ class VuelosServices {
 
         $res = curl_exec($conexion);
         if ($res) {
-           
+
             return $res;
         }
         curl_close($conexion);
     }
-    }
-
-
+}

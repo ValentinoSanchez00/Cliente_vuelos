@@ -43,4 +43,13 @@ class GeneralController {
         $resultado = $validar->resultado;
         header("Location: ./index.php?controller=Pasaje&action=mostrarPasajes&validacion=" . $resultado);
     }
+    
+    
+    public function mostrarpasajeporid() {
+        $id=trim(substr($_POST["id"], 0, strpos($_POST["id"], '-', strpos($_POST["id"], '-') + 1)));
+        $pasaje= json_decode($this->serviceGeneral->DarServicioPasaje("request_curlbyId", $id, null, null, null, null),true);
+        
+        
+        
+    }
 }

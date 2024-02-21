@@ -44,32 +44,41 @@ class VuelosController {
     public function mostrarFormulario1vuelo() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->view->opcionesporId($_POST["select1"]);
-        } else{
+        } else {
             $identificadores = json_decode($this->service->request_curlIdentificadores(), true);
             $arraydeidentificadores = [];
             foreach ($identificadores as $valores) {
-            array_push($arraydeidentificadores, $valores["identificadores"]);
-        }
+                array_push($arraydeidentificadores, $valores["identificadores"]);
+            }
 
 
 
-        $this->view->formularioporId($arraydeidentificadores);
+            $this->view->formularioporId($arraydeidentificadores);
         }
     }
 
     public function mostrarporId() {
-        $identificador = $_POST["identificador"];
-        $Vuelos = json_decode($this->service->request_curlId($identificador), true);
-        $arraydeVuelos = [];
-        foreach ($Vuelos as $valoresVuelo) {
+        $id = trim(substr($_POST["id"], 0, strpos($_POST["id"], '-', strpos($_POST["id"], '-') + 1)));
+        $vuelos = json_decode($this->service->request_curlid($id), true);
+        $arrayDeVuelos = [];
 
-            $nuevoVuelo = new Vuelo($valoresVuelo["identificador"], $valoresVuelo["aeropuertoorigen"], $valoresVuelo["aeropuertodestino"], $valoresVuelo["tipovuelo"], $valoresVuelo["fechavuelo"], $valoresVuelo["descuento"], $valoresVuelo["numpasajero"]);
+        foreach ($vuelos as $valoresVuelo) {
+            $aeropuertoOrigen = new Aeropuerto($valoresVuelo["codigo_origen"], $valoresVuelo["nombre_origen"], null, null);
+            $aeropuertoDestino = new Aeropuerto($valoresVuelo["codigo_destino"], $valoresVuelo["nombre_destino"], null, null);
 
-            array_push($arraydeVuelos, $nuevoVuelo);
+            $nuevoVuelo = new Vuelo(
+                    $valoresVuelo["identificador"],
+                    $aeropuertoOrigen,
+                    $aeropuertoDestino,
+                    $valoresVuelo["tipovuelo"],
+                    $valoresVuelo["fechavuelo"],
+                    $valoresVuelo["descuento"],
+                    $valoresVuelo["numpasajero"]
+            );
+
+            array_push($arrayDeVuelos, $nuevoVuelo);
         }
 
-
-
-        $this->view->mostrartodos($arraydeVuelos);
+        $this->view->mostrartodos($arrayDeVuelos);
     }
 }

@@ -94,12 +94,14 @@ class VuelosView {
 
             <div class="d-flex justify-content-center">
                 <!-- Primer formulario -->
-                <form class="me-5" action="./index.php?controller=Vuelos&action=mostrarFormulario1vuelo" method="post">
+                <form class="me-5" action='./index.php?controller=Vuelos&action=mostrarporid' method="post">
+                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <button type="submit" class="btn btn-primary">Vuelo</button>
                 </form>
 
                 <!-- Segundo formulario -->
-                <form action="./index.php?controller=Vuelos&action=mostrarFormulario1vuelo" method="post">
+                <form action="./index.php?controller=General&action=mostrarpasajeporid" method="post">
+                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <button type="submit" class="btn btn-primary">Pasaje</button>
                 </form>
             </div>

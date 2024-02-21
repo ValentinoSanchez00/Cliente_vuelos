@@ -21,7 +21,9 @@ class GeneralServices{
       
         if ($variable1!=null && $variable2!=null && $variable3!=null && $variable4!=null && $variable5!=null) {
                $res= $this->servicePasaje->$servicio($variable1,$variable2,$variable3,$variable4,$variable5);
-           } else {
+           } else if ($variable1!=null ) {
+               $res= $this->servicePasaje->$servicio($variable1);
+           }else{
                 $res= $this->servicePasaje->$servicio();
            }
        return $res;
