@@ -83,7 +83,9 @@ class VuelosView {
                     <button type="submit">Enviar</button>
                 </form>
             </div>
+             <a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>
         </body>
+       
         <?php
     }
 
@@ -105,7 +107,9 @@ class VuelosView {
                     <button type="submit" class="btn btn-primary">Pasaje</button>
                 </form>
             </div>
+            
         </div>
+        <a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>
         <?php
     }
 }

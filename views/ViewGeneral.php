@@ -30,7 +30,7 @@ class ViewGeneral {
         echo '<label for="select2" class="form-label">Selecciona Pasajero:</label>';
         echo '<select id="select2" name="select2" class="form-select">';
         foreach ($pasajeros as $pasajero) {
-            echo '<option value="' . substr($pasajero, 0,1). '">' . $pasajero . '</option>';
+            echo '<option value="' . substr($pasajero, 0, 1) . '">' . $pasajero . '</option>';
         }
         echo '</select>';
         echo '</div>';
@@ -82,5 +82,58 @@ class ViewGeneral {
         echo '</div>';
         echo '<a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>';
     }
-    
+
+    public function mostrarpasajecon1ID($id, $arrayPasajes) {
+        ?>  
+        <div class="container mt-4 transparent-white-bg">
+            <h1>Tabla de Identificador: <?php echo $id ?></h1>
+            <?php
+            if (count($arrayPasajes) != 0) {
+                ?>
+
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID Pasaje</th>
+                            <th>Codigo pasajero</th>
+                            <th>Nombre</th>
+                            <th>Pais</th>
+                            <th>Número de Asiento</th>
+                            <th>Clase</th>
+                            <th>PVP</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($arrayPasajes as $pasaje): ?>
+                            <tr>
+                                <td><?= $pasaje["idpasaje"] ?></td>
+                                <td><?= $pasaje["pasajerocod"] ?></td>
+                                <td><?= $pasaje["nombre"] ?></td>
+                                <td><?= $pasaje["pais"] ?></td>
+                                <td><?= $pasaje["numasiento"] ?></td>
+                                <td><?= $pasaje["clase"] ?></td>
+                                <td><?= $pasaje["pvp"] ?></td>
+
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+
+                <?php
+            } else {
+                echo '<p>No hay pasajeros para este pasaje</p>';
+            }
+            ?>
+            <a href="./index.php?controller=Vuelos&action=mostrarInicio">Volver</a>
+        </div>
+
+
+
+
+
+
+        <?php
+    }
 }

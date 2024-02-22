@@ -49,6 +49,7 @@ class GeneralController {
         $id=trim(substr($_POST["id"], 0, strpos($_POST["id"], '-', strpos($_POST["id"], '-') + 1)));
         $pasaje= json_decode($this->serviceGeneral->DarServicioPasaje("request_curlbyId", $id, null, null, null, null),true);
         
+        $this->viewGeneral->mostrarpasajecon1ID($id,$pasaje);
         
         
     }
