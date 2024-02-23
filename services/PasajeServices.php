@@ -66,7 +66,7 @@ class PasajeServices {
     
         public function validar($cod, $identificador, $numasiento, $clase, $pvp) {
         $envio = json_encode(array("pasajerocod" => $cod, "identificador" => $identificador, "numasiento" => $numasiento, "clase" => $clase, "pvp" => $pvp));
-        $urlmiservicio = "http://localhost/_servWeb/vueloservice/pasaje.php/?validar";
+        $urlmiservicio = "http://localhost/_servWeb/vueloservice/pasaje.php/?insertar";
         $conexion = curl_init();
         curl_setopt($conexion, CURLOPT_URL, $urlmiservicio);
         //Cabecera, tipo de datos y longitud de envío
